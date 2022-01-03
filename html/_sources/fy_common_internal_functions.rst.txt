@@ -1,0 +1,6 @@
+fy_common_internal_functions
+============================
+These are the functions which are common among the REST APIs.
+
+.. automodule:: fy_common_internal_functions
+    :members:

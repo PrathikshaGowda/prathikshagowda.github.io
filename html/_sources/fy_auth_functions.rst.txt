@@ -1,0 +1,6 @@
+fy_auth_functions
+============================
+These are the functions which are common among the REST APIs.
+
+.. automodule:: fy_auth_functions
+    :members:

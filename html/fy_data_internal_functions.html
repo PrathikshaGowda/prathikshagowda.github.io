@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fy_data_internal_functions &mdash; data_rest  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fy_save_chart_settings_functions" href="fy_save_chart_settings_functions.html" />
+    <link rel="prev" title="fy_data_external_functions" href="fy_data_external_functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> data_rest
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fy_auth_functions.html">fy_auth_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_base_functions.html">fy_base_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_common_internal_functions.html">fy_common_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_connections.html">fy_connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_external_functions.html">fy_data_external_functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fy_data_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_save_chart_settings_functions.html">fy_save_chart_settings_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_savechart_functions.html">fy_savechart_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_set_redis_count.html">fy_set_redis_count</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagator_auth_check.html">vagator_auth_check</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">data_rest</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>fy_data_internal_functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/fy_data_internal_functions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="fy-data-internal-functions">
+<h1>fy_data_internal_functions<a class="headerlink" href="#fy-data-internal-functions" title="Permalink to this headline">\uf0c1</a></h1>
+<p>These are the functions which performs the core operations for the REST APIs.</p>
+<span class="target" id="module-fy_data_internal_functions"></span><dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_corpAction">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_corpAction</code><span class="sig-paren">(</span><em>symbol</em>, <em>fromDate</em>, <em>toDate</em>, <em>corpType</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em>, <em>mobileFlag=False</em>, <em>route=None</em>, <em>underlyingSym=None</em>, <em>fyToken=None</em>, <em>tokenHash=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_corpAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_corpAction" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This Function will return corp Action data from redis if not available then from DB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>symbol</strong> – The symbol that he wants the corp action data for</li>
+<li><strong>fromDate</strong> – Time from which he wants to search crop action</li>
+<li><strong>toDate</strong> – Time till which he wants to search crop action</li>
+<li><strong>corpType</strong> – Type of corp action he wants to search</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="nb">eval</span><span class="p">(</span><span class="n">getDataLocalMemory</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">((</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-06-03&#39;</span><span class="p">,</span> <span class="mi">1622678400</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;4.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-06-03-SBIN-D&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-05-26&#39;</span><span class="p">,</span> <span class="mi">1495756800</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;2.6&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-05-26-SBIN-D&#39;</span><span class="p">),</span>                           <span class="p">(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2016-06-03&#39;</span><span class="p">,</span> <span class="mi">1464912000</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;2.6&#39;</span><span class="p">,</span> <span class="s1">&#39;2016-06-03-SBIN-D&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-05-28&#39;</span><span class="p">,</span> <span class="mi">1432771200</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;3.5&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-05-28-SBIN-D&#39;</span><span class="p">),(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-11-20&#39;</span><span class="p">,</span> <span class="mi">1416441600</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;10:1&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-11-20-SBIN-S&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-29&#39;</span><span class="p">,</span> <span class="mi">1401321600</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;15.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-29-SBIN-D&#39;</span><span class="p">),(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-03-11&#39;</span><span class="p">,</span> <span class="mi">1394496000</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;15.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-03-11-SBIN-D&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2013-05-28&#39;</span><span class="p">,</span> <span class="mi">1369699200</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;41.5&#39;</span><span class="p">,</span> <span class="s1">&#39;2013-05-28-SBIN-D&#39;</span><span class="p">),(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2012-05-24&#39;</span><span class="p">,</span> <span class="mi">1337817600</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;35.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2012-05-24-SBIN-D&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2011-05-20&#39;</span><span class="p">,</span> <span class="mi">1305849600</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;30.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2011-05-20-SBIN-D&#39;</span><span class="p">),(</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;2010-06-09&#39;</span><span class="p">,</span> <span class="mi">1276041600</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;20.0&#39;</span><span class="p">,</span> <span class="s1">&#39;2010-06-09-SBIN-D&#39;</span><span class="p">)),</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span> <span class="n">ERROR_M_UNKNOWN_1</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="s2">&quot;An unexpected error occurred. Please contact support.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getAppVersions">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getAppVersions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getAppVersions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getAppVersions" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>used to show the app version used in mobile app.</p>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>  <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span><span class="n">versionRet</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+           <span class="p">[{</span><span class="s2">&quot;date_update&quot;</span><span class="p">:</span> <span class="s2">&quot;20-12-2021 16:54&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Funds tab to display collateral amount.Order window limit pop-up is added.Bug fixes and performance enhancements&quot;</span><span class="p">,</span> <span class="s2">&quot;cur_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.41&quot;</span><span class="p">,</span> <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;fy_app_android&quot;</span><span class="p">,</span> <span class="s2">&quot;min_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.38&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;date_update&quot;</span><span class="p">:</span> <span class="s2">&quot;20-12-2021 20:17&quot;</span><span class="p">,</span><span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Funds tab to display collateral amount.Order window limit pop-up is added.Bug fixes and performance enhancements&quot;</span><span class="p">,</span> <span class="s2">&quot;cur_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.28&quot;</span><span class="p">,</span><span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;fy_app_ios&quot;</span><span class="p">,</span> <span class="s2">&quot;min_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.26&quot;</span><span class="p">}]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>  <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_DB_1</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getEODPricesForFyTokenDict_forDate">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getEODPricesForFyTokenDict_forDate</code><span class="sig-paren">(</span><em>fyTokenDict</em>, <em>eodDataTimestamp</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getEODPricesForFyTokenDict_forDate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getEODPricesForFyTokenDict_forDate" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This function retunrs OHLCV data along with corp action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fyTokenDict</strong> – The input that needs to be checked for sql injections. EX:-[SBIN]</li>
+<li><strong>eodDataTimestamp</strong> – Epoch timestamp</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">eodDict</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;10100000003045-6001-1550620800&#39;</span><span class="p">:</span> <span class="s1">&#39;{&quot;adj_perc_ret&quot;: 1.82579, &quot;timestamp&quot;: 1550620800, &quot;perc_ret&quot;: 1.82579, &quot;corp_action&quot;: null, &quot;date&quot;: &quot;2019-02-20&quot;,&quot;dividend&quot;: 0.0, &quot;c&quot;: 267.7, &quot;h&quot;: 268.3, &quot;l&quot;: 264.3, &quot;o&quot;: 264.5, &quot;v&quot;: 15514595}&#39;</span><span class="p">,</span> <span class="s1">&#39;101000000011536-6001-1550620800&#39;</span><span class="p">:</span> <span class="s1">&#39;{&quot;adj_perc_ret&quot;: 0.522365,&quot;timestamp&quot;: 1550620800, &quot;perc_ret&quot;: 0.522365, &quot;corp_action&quot;: null, &quot;date&quot;: &quot;2019-02-20&quot;, &quot;dividend&quot;: 0.0, &quot;c&quot;: 1914.75, &quot;h&quot;: 1933.8, &quot;l&quot;: 1881.3,&quot;o&quot;: 1915.0, &quot;v&quot;: 4645778}&#39;</span><span class="p">},</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">errorCode</span><span class="p">,</span> <span class="s2">&quot;error message&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="s1">&#39;Invalid input&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getEquityEOD_forDate">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getEquityEOD_forDate</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbolList</em>, <em>eodDataDate</em>, <em>callingFuncName=''</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getEquityEOD_forDate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getEquityEOD_forDate" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This function wil get EOD data for equity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fySymbol</strong> – Unique Fyers symbol id allotted for the symbol</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,{</span><span class="n">dictionary</span> <span class="n">which</span> <span class="n">has</span> <span class="n">details</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">symbols</span><span class="p">},</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mf">267.7</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;adj_perc_ret&#39;</span><span class="p">:</span> <span class="mf">1.82579</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="mi">1550620800</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mi">15514595</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">264.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="mf">264.5</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;perc_ret&#39;</span><span class="p">:</span> <span class="mf">1.82579</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;corp_action&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">268.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2019-02-20&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;dividend&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:SBIN-EQ&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mf">1914.75</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;adj_perc_ret&#39;</span><span class="p">:</span> <span class="mf">0.522365</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="mi">1550620800</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mi">4645778</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">1881.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="mf">1915.0</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;perc_ret&#39;</span><span class="p">:</span> <span class="mf">0.522365</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;corp_action&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">1933.8</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2019-02-20&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;dividend&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:TCS-EQ&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;errmsg&#39;</span><span class="p">:</span> <span class="s1">&#39;Please provide a valid symbol&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:NIFTY19FEBFUT&#39;</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:NIFTY19FEBFUT&#39;</span><span class="p">}],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span><span class="n">errorCode</span><span class="p">,</span><span class="n">errorMessage</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;errmsg&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:SBIN-EQ&#39;</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:SBIN-EQ&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;errmsg&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:TCS-EQ&#39;</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:TCS-EQ&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;errmsg&#39;</span><span class="p">:</span> <span class="s1">&#39;Please provide a valid symbol&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:NIFTY19FEBFUT&#39;</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;NSE:NIFTY19FEBFUT&#39;</span><span class="p">}],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getHighsLows">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getHighsLows</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbol</em>, <em>contFutFlag</em>, <em>callingFuncName=''</em>, <em>localMemory=None</em>, <em>db=None</em>, <em>cursor=None</em>, <em>verifyToken=True</em>, <em>mobileAPIFlag=False</em>, <em>fyToken=None</em>, <em>fyTokenDict=None</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getHighsLows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getHighsLows" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This function returns high, low, previous close, change, change percentage and LTP values from redis, and if not found in redis it takes the date from DB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tokenHash</strong> – Unique token which identifies and authenticate specific user.</li>
+<li><strong>fySymbol</strong> – Name of the script</li>
+<li><strong>contFutFlag</strong> – continuous futures Flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">dataDict</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;ch&#39;</span><span class="p">:</span> <span class="mf">3.15</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;lp&#39;</span><span class="p">:</span> <span class="mf">461.2</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;1Y&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">542.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">248.25</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">331.15</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;6M&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">542.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">401.25</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">409.5</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;chp&#39;</span><span class="p">:</span> <span class="mf">0.69</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;1D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">462.9</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">459.05</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">458.05</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;3M&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">542.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">439.1</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">506.5</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;5D&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">465.0</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">444.5</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">455.85</span><span class="p">},</span><span class="sa">u</span><span class="s1">&#39;YTD&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">542.3</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">269.5</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">274.95</span><span class="p">},</span> <span class="sa">u</span><span class="s1">&#39;1M&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">500.45</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">443.0</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="mf">465.3</span><span class="p">}},</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_INV_FYSYMBOL</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">330</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getHistoricalOHLCV4_V7">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getHistoricalOHLCV4_V7</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbol</em>, <em>histFrom</em>, <em>histTo</em>, <em>resolution</em>, <em>contFutFlag</em>, <em>callingFuncName=''</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getHistoricalOHLCV4_V7"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getHistoricalOHLCV4_V7" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Get the historical OHLCV data for a particular symbol for specific requested resolutions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fySymbol</strong> – Name of the script for which history data is required.</li>
+<li><strong>resolution</strong> – Timeframe for which data is required, resolution = 1, 2, 3, 5, 10, 15, 20, 30, 60, 120, 240 mins or 1D resolution</li>
+<li><strong>histFrom</strong> – Timestamp from which data is required.</li>
+<li><strong>histTo</strong> – Timestamp to for which data is required.</li>
+<li><strong>route</strong> – ‘/history/V7’</li>
+<li><strong>tokenHash</strong> – Unique token which identifies and authenticate specific user.</li>
+<li><strong>contFutFlag</strong> – Optional parameter to get continuous futures data
+Ex: contFlag = 1, to get continuous futures data
+contFlag = 0, to get non continuous futures data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="p">[</span><span class="n">histData</span><span class="p">,],</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[[(</span><span class="mi">1602460800</span><span class="p">,</span> <span class="mf">199.7</span><span class="p">,</span> <span class="mf">205.95</span><span class="p">,</span> <span class="mf">197.25</span><span class="p">,</span> <span class="mf">198.7</span><span class="p">,</span> <span class="mi">69125880</span><span class="p">),</span> <span class="p">(</span><span class="mi">1602547200</span><span class="p">,</span> <span class="mf">198.65</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">195.1</span><span class="p">,</span> <span class="mf">195.7</span><span class="p">,</span> <span class="mi">34949604</span><span class="p">),</span> <span class="p">(</span><span class="mi">1602633600</span><span class="p">,</span> <span class="mf">194.05</span><span class="p">,</span> <span class="mf">200.9</span><span class="p">,</span> <span class="mf">193.05</span><span class="p">,</span><span class="mf">200.05</span><span class="p">,</span> <span class="mi">40550062</span><span class="p">)]],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_DB_1</span><span class="p">,</span> <span class="n">ERROR_M_UNKNOWN_1</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;An unexpected error occurred. Please contact support.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getL1PricesForFyTokenDict">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getL1PricesForFyTokenDict</code><span class="sig-paren">(</span><em>fyTokenDict</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em>, <em>oiFlag=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getL1PricesForFyTokenDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getL1PricesForFyTokenDict" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Return LTP, change, percentage change, ohlcv from redis updated during live market hours or from Db if data is not found in redis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fyTokenDict</strong> – Dictionary which contains symbolTicker as key and fyToken as value</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>  <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">l2Dict</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+           <span class="p">{</span><span class="s1">&#39;101122012767795-2001-1640563200&#39;</span><span class="p">:</span> <span class="s1">&#39;{&quot;900&quot;: 1, &quot;901&quot;: 2, &quot;902&quot;: 1, &quot;903&quot;: 4, &quot;904&quot;: 3, &quot;401&quot;: 461.45, &quot;402&quot;: 461.4, &quot;403&quot;: 461.35, &quot;404&quot;: 461.3,&quot;405&quot;: 461.1, &quot;800&quot;: 1, &quot;801&quot;: 2, &quot;802&quot;: 6, &quot;803&quot;: 2, &quot;804&quot;: 2, &quot;604&quot;: 461.85, &quot;301&quot;: 1500, &quot;302&quot;: 3000, &quot;303&quot;: 9000, &quot;304&quot;: 3000, &quot;305&quot;: 3000,&quot;700&quot;: 461.15, &quot;701&quot;: 461.45, &quot;702&quot;: 461.45, &quot;703&quot;: 461.15, &quot;704&quot;: 21000, &quot;705&quot;: 1640599140, &quot;706&quot;: &quot;15:29&quot;, &quot;201&quot;: 461.45, &quot;202&quot;: 1500,&quot;203&quot;: 1640599197, &quot;204&quot;: 3.25, &quot;206&quot;: 458.89, &quot;207&quot;: 19159500, &quot;211&quot;: 766500.0, &quot;212&quot;: 3439500.0, &quot;215&quot;: 0.71, &quot;601&quot;: 461.7, &quot;602&quot;: 461.75, &quot;603&quot;: 461.8,&quot;220&quot;: 458.2, &quot;221&quot;: 455.3, &quot;222&quot;: 462.65, &quot;223&quot;: 452.75, &quot;224&quot;: 0.25, &quot;225&quot;: 1640563200, &quot;228&quot;: 1640599199, &quot;229&quot;: 0, &quot;501&quot;: 1500, &quot;502&quot;: 3000,&quot;503&quot;: 1500, &quot;504&quot;: 6000, &quot;505&quot;: 9000, &quot;605&quot;: 461.9}&#39;</span><span class="p">}</span>
+
+<span class="n">Failure</span> <span class="p">:</span>  <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span> <span class="n">ERROR_M_UNKNOWN_1</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="s2">&quot;An unexpected error occurred. Please contact support.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getL1PricesForFyTokenDictOptChain">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getL1PricesForFyTokenDictOptChain</code><span class="sig-paren">(</span><em>fyTokenDict</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em>, <em>oiFlag=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getL1PricesForFyTokenDictOptChain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getL1PricesForFyTokenDictOptChain" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>NA</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getL1PricesForFyTokenDictOptChain_1">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getL1PricesForFyTokenDictOptChain_1</code><span class="sig-paren">(</span><em>fyTokenDict</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em>, <em>oiFlag=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getL1PricesForFyTokenDictOptChain_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getL1PricesForFyTokenDictOptChain_1" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>NA</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getLevel2Data">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getLevel2Data</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbol</em>, <em>callingFuncName=''</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getLevel2Data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getLevel2Data" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>NA</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getMyAccountHoldings">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getMyAccountHoldings</code><span class="sig-paren">(</span><em>isinList=None</em>, <em>techexcel_list=None</em>, <em>mf_scheme_code_list=None</em>, <em>callingFuncName=''</em>, <em>localMemory=None</em>, <em>db=None</em>, <em>cursor=None</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getMyAccountHoldings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getMyAccountHoldings" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This Function returns the LTP value for stock symbols and techexcel or NAV values for mf_scheme_code_value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>isinList</strong> – It is the stock ISIN values.</li>
+<li><strong>mf_scheme_code_list</strong> – A mutual fund scheme values for which to get NAV values for.</li>
+<li><strong>techexcel_list</strong> – Stock symbols in the formate of techexcel schema.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">resultMfList</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[{</span><span class="sa">u</span><span class="s1">&#39;INE062A01020&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;stock&#39;</span><span class="p">,</span> <span class="s1">&#39;latest_price&#39;</span><span class="p">:</span> <span class="mf">467.45</span><span class="p">}}],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span> <span class="n">ERROR_M_UNKNOWN_1</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="s2">&quot;An unexpected error occurred. Please contact support.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getQuickQuote">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getQuickQuote</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbolList</em>, <em>callingFuncName=''</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getQuickQuote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getQuickQuote" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Not In USE</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getQuote3">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getQuote3</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbolList</em>, <em>callingFuncName=''</em>, <em>localMemory=None</em>, <em>db=None</em>, <em>cursor=None</em>, <em>mobileAPIFlag=False</em>, <em>fyTokenDict=None</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getQuote3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getQuote3" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Gets the basic details of symbol</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fySymbol</strong> – Unique Fyers symbol id allotted for the symbol.</li>
+<li><strong>tokenHash</strong> – Unique token which identifies and authenticate specific user.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>  <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">symQuoteList</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+           <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;high_price&#39;</span><span class="p">:</span> <span class="mf">462.65</span><span class="p">,</span> <span class="s1">&#39;prev_close_price&#39;</span><span class="p">:</span> <span class="mf">458.2</span><span class="p">,</span> <span class="s1">&#39;ch&#39;</span><span class="p">:</span> <span class="mf">3.25</span><span class="p">,</span> <span class="s1">&#39;tt&#39;</span><span class="p">:</span> <span class="mi">1640563200</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">,</span> <span class="s1">&#39;short_name&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN22JANFUT&#39;</span><span class="p">,</span><span class="s1">&#39;exchange&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE&#39;</span><span class="p">,</span> <span class="s1">&#39;low_price&#39;</span><span class="p">:</span> <span class="mf">452.75</span><span class="p">,</span> <span class="s1">&#39;bid&#39;</span><span class="p">:</span> <span class="mf">461.45</span><span class="p">,</span> <span class="s1">&#39;cmd&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mf">461.45</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mf">461.45</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">461.15</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="mf">461.15</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">1640599140</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mi">21000</span><span class="p">,</span><span class="s1">&#39;tf&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;15:29&#39;</span><span class="p">},</span> <span class="s1">&#39;original_name&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">,</span> <span class="s1">&#39;chp&#39;</span><span class="p">:</span> <span class="mf">0.71</span><span class="p">,</span> <span class="s1">&#39;spread&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;open_price&#39;</span><span class="p">:</span> <span class="mf">455.3</span><span class="p">,</span> <span class="s1">&#39;fyToken&#39;</span><span class="p">:</span> <span class="s1">&#39;101122012767795&#39;</span><span class="p">,</span> <span class="s1">&#39;lp&#39;</span><span class="p">:</span> <span class="mf">461.45</span><span class="p">,</span><span class="s1">&#39;ask&#39;</span><span class="p">:</span> <span class="mf">461.7</span><span class="p">,</span> <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">:</span> <span class="mi">19159500</span><span class="p">},</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">}],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>  <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span> <span class="n">ERROR_M_UNKNOWN_1</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="s2">&quot;An unexpected error occurred. Please contact support.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getRollingContracts">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getRollingContracts</code><span class="sig-paren">(</span><em>symbolTicker</em>, <em>exchange</em>, <em>segment</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getRollingContracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getRollingContracts" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This Function will connect to redis instance and return radis_instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>exchange</strong> – Exchange of the symbol.</li>
+<li><strong>segment</strong> – Segment of the symbol.</li>
+<li><strong>symbolTicker</strong> – Script name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">rollingTokenDict</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;SBIN&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;far&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;1645713000&#39;</span><span class="p">,),</span> <span class="s1">&#39;near&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;1640874600&#39;</span><span class="p">,),</span> <span class="s1">&#39;expiry&#39;</span><span class="p">:</span> <span class="s1">&#39;1643293800&#39;</span><span class="p">,</span> <span class="s1">&#39;next&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;1643293800&#39;</span><span class="p">,)}},</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_DB_1</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getSymData">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getSymData</code><span class="sig-paren">(</span><em>symTicker_list</em>, <em>localMemory=None</em>, <em>symbolInfoFlag=False</em>, <em>getFyTokenFlag=False</em>, <em>getExpiryAndExSymFlag=False</em>, <em>mobileApiFlag=False</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getSymData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getSymData" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Used to get the symbol master table details from redis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>symTicker_list</strong> – List of symticker for which symbol master deatils are required</li>
+<li><strong>localMemory</strong> – End point of redis cluster.</li>
+<li><strong>symbolInfoFlag</strong> – If TRue we provide all the details from symbol master table in redis for a perticular symbolticker or list of symboltickers.</li>
+<li><strong>getFyTokenFlag</strong> – Flag is True when we need only the fytoken of a perticular symbolticker or list of symboltickers.</li>
+<li><strong>getExpiryAndExSymFlag</strong> – If Flag is True returns the expiry details of a perticular symbolticker or list of symboltickers.</li>
+<li><strong>mobileApiFlag</strong> – If Falg is True return the expiry status of a perticular symbolticker or list of symboltickers.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">active_symbol_dict</span><span class="p">[</span><span class="n">active_symbol_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()[</span><span class="mi">0</span><span class="p">]][</span><span class="s2">&quot;fyToken&quot;</span><span class="p">]),</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;10100000003045&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_INV_FYSYMBOL</span><span class="p">,</span> <span class="n">ERROR_M_INV_FYSYMBOL</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;Please provide a valid symbol&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getSymbolInfo">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getSymbolInfo</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>fySymbol</em>, <em>mobileChartFlag=0</em>, <em>callingFuncName=''</em>, <em>localMemory=None</em>, <em>verifyToken=True</em>, <em>db=None</em>, <em>cursor=None</em>, <em>mobileAPIFlag=False</em>, <em>route=None</em>, <em>checkFlag=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getSymbolInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getSymbolInfo" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>should add</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_getTableName">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_getTableName</code><span class="sig-paren">(</span><em>tokenDict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_getTableName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_getTableName" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This Function will get the table name of near month, next month, far month.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tokenDict</strong> – Consists the near,next,far month expiry for a perticular symbol.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">tableName</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sbin_next_month_fut&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_searchSymbols">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_searchSymbols</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>searchString</em>, <em>exchange=0</em>, <em>segment=0</em>, <em>numLimit=100</em>, <em>callingFuncName=''</em>, <em>route=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_searchSymbols"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_searchSymbols" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>A Function which takes query string as parameter provided by user based on which it searches the relevent symbols from DB and stores it in redis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>searchString</strong> – End point of redis cluster.</li>
+<li><strong>tokenHash</strong> – Port of radis cluster.</li>
+<li><strong>numLimit</strong> – Db ssociated with it.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">searchList</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[{</span><span class="sa">u</span><span class="s1">&#39;ex_sym&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN 21 Dec 30 FUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;sym_token&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;101121123071694&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;exchange&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;ticker&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN21DECFUT&#39;</span><span class="p">,</span><span class="sa">u</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN21DECFUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN 21 Dec 30 FUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;Futures&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;21 Dec 30 FUT&#39;</span><span class="p">},</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;ex_sym&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span><span class="sa">u</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN 22 Jan 27 FUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;sym_token&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;101122012767795&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;exchange&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;ticker&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">,</span><span class="sa">u</span><span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN 22 Jan 27 FUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;Futures&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;22 Jan 27 FUT&#39;</span><span class="p">},</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;ex_sym&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN 22 Feb 24 FUT&#39;</span><span class="p">,</span><span class="sa">u</span><span class="s1">&#39;sym_token&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;101122022452069&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;exchange&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;ticker&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22FEBFUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN22FEBFUT&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;full_name&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;SBIN 22 Feb 24 FUT&#39;</span><span class="p">,</span><span class="sa">u</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;Futures&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;22 Feb 24 FUT&#39;</span><span class="p">}]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ret_SearchQuery</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ret_SearchQuery</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">210</span><span class="p">,</span> <span class="s2">&quot;ERR: getSerachQuery Invalid length of search query.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_utilCorpAct">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_utilCorpAct</code><span class="sig-paren">(</span><em>eachVal</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_utilCorpAct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_utilCorpAct" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>It returns corp action type of specific symbol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eachVal</strong> – Tuple which contains the symbol and details of corp action</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="n">corpActDict</span>
+            <span class="p">{</span><span class="s1">&#39;date_ex_symbol_action&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-03-SBIN-D&#39;</span><span class="p">,</span> <span class="s1">&#39;date_timestamp&#39;</span><span class="p">:</span> <span class="mi">1622678400</span><span class="p">,</span> <span class="s1">&#39;details&#39;</span><span class="p">:</span> <span class="s1">&#39;4.0&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;03 Jun 2021&#39;</span><span class="p">,</span><span class="s1">&#39;ex_symbol&#39;</span><span class="p">:</span> <span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Dividend&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_validateUserApp">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_validateUserApp</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_validateUserApp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_validateUserApp" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Function to validate the user and app using user token.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.INTERNAL_verifyRequest">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">INTERNAL_verifyRequest</code><span class="sig-paren">(</span><em>kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#INTERNAL_verifyRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.INTERNAL_verifyRequest" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This function will verify if the request is valid or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>symbol</strong> – Name of the script which needs to be validated.</li>
+<li><strong>token_id</strong> – Unique token which identifies and authenticate specific user.</li>
+<li><strong>dataReq</strong> – API request epoch time.</li>
+<li><strong>marketStat</strong> – md5 hash which is used to validate the API request</li>
+<li><strong>secret_keyname</strong> – secret_key_rest_apis_1640563200</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">{[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]}</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_INV_REQUEST</span><span class="p">,</span> <span class="n">ERROR_M_INV_REQUEST</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">421</span><span class="p">,</span> <span class="s1">&#39;unauthorized access is not allowed&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.createChecksum">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">createChecksum</code><span class="sig-paren">(</span><em>key='nH0XGf_yDxSi4Ge9C874L8_3NF_VJF_bZs0YVP7aGY='</em>, <em>message=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#createChecksum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.createChecksum" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This function hashes the message along with secrete key received as input using sha256 mechanism.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> – The hash key value.</li>
+<li><strong>message</strong> – A string seperated by <a href="#id1"><span class="problematic" id="id2">|</span></a>, that needs to be hashed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">hashSig</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;8b185d47655b17af66262734153ec18716e2bc484e7a1be2ce3e752f5b9a1b3b&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span><span class="n">e</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;global name &#39;messag&#39; is not defined&quot;</span><span class="p">,)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.functTupleRet">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">functTupleRet</code><span class="sig-paren">(</span><em>timeData</em>, <em>op</em>, <em>high</em>, <em>low</em>, <em>close</em>, <em>vol</em>, <em>grouping</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#functTupleRet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.functTupleRet" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This Function returns the int type of timestamp received in parameter along with open, high, low, close, volume, group in a tuple .</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>timeData</strong> – Epoch timestamp.</li>
+<li><strong>op</strong> – Open value of the script.</li>
+<li><strong>high</strong> – high value of the script.</li>
+<li><strong>low</strong> – low value of the script.</li>
+<li><strong>close</strong> – close value of the script.</li>
+<li><strong>vol</strong> – volumne value of the script.</li>
+<li><strong>grouping</strong> – Open value of the script.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>  <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">timeData</span><span class="p">),</span><span class="n">op</span><span class="p">,</span><span class="n">high</span><span class="p">,</span><span class="n">low</span><span class="p">,</span><span class="n">close</span><span class="p">,</span><span class="n">vol</span><span class="p">,</span><span class="n">grouping</span><span class="p">)</span>
+           <span class="p">(</span><span class="mi">1640580900</span><span class="p">,</span> <span class="mf">456.25</span><span class="p">,</span> <span class="mf">456.35</span><span class="p">,</span> <span class="mf">455.8</span><span class="p">,</span> <span class="mf">456.0</span><span class="p">,</span> <span class="mi">17708</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="p">(</span><span class="mi">1640580960</span><span class="p">,</span> <span class="mf">455.9</span><span class="p">,</span> <span class="mf">455.95</span><span class="p">,</span> <span class="mf">455.6</span><span class="p">,</span> <span class="mf">455.95</span><span class="p">,</span> <span class="mi">8459</span><span class="p">,</span> <span class="mi">71</span><span class="p">)</span>
+
+<span class="n">Failure</span> <span class="p">:</span>  <span class="s2">&quot;TypeError: unsupported operand type(s) for -: &#39;str&#39; and &#39;int&#39;&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.getHistFromToTS">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">getHistFromToTS</code><span class="sig-paren">(</span><em>histFrom</em>, <em>histTo</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#getHistFromToTS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.getHistFromToTS" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Not in USE</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_data_internal_functions.getSerachQuery">
+<code class="descclassname">fy_data_internal_functions.</code><code class="descname">getSerachQuery</code><span class="sig-paren">(</span><em>searchSym</em>, <em>searchEx</em>, <em>searchSeg</em>, <em>searchLimit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_data_internal_functions.html#getSerachQuery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_data_internal_functions.getSerachQuery" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This Function will creates the sql query and redis key as per requirement with respect to the client request</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>searchSym</strong> – Search symbol name</li>
+<li><strong>searchEx</strong> – Exhchange name NSE or ‘’</li>
+<li><strong>searchSeg</strong> – Segment name or ‘’</li>
+<li><strong>searchLimit</strong> – number of results &lt; 100 or ‘’</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;cache&#39;</span><span class="p">:</span> <span class="n">cacheSearchQuery</span><span class="p">,</span> <span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="n">SQL_searchQ</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;cache&#39;</span><span class="p">:</span> <span class="s1">&#39;SBIN_10_2-2017&#39;</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;sql&#39;</span><span class="p">:</span> <span class="s2">&quot;SELECT FY_TOKEN,SYM_DETAILS,EX,EX_INST_TYPE,SYMBOL_TICKER, EX_SYMBOL, EX_SEGMENT FROM `symbol_master` WHERE TRADE_STATUS = 1 AND (EX_SYMBOL LIKE &#39;SBIN%&#39; OR EX_SYMBOL_NAME LIKE &#39;%SBIN%&#39;) AND EX_INST_TYPE IN (11,12,13,16,17,18,30)  AND EX = 10  ORDER BY EX_INST_TYPE,EX_SYMBOL,EXPIRY_DATE,SEARCH_RANKING,STRIKE_PRICE ASC LIMIT 30;&quot;</span><span class="p">},</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_INV_SEARCHSYMBOL</span><span class="p">,</span> <span class="s2">&quot;ERR : </span><span class="si">%s</span><span class="s2"> Invalid length of search query.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">LOG_STR_getSerachQuery</span><span class="p">)]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">210</span><span class="p">,</span> <span class="s2">&quot;ERR: getSerachQuery Invalid length of search query.]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fy_data_external_functions.html" class="btn btn-neutral float-left" title="fy_data_external_functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fy_save_chart_settings_functions.html" class="btn btn-neutral float-right" title="fy_save_chart_settings_functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Fyers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

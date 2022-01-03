@@ -1,0 +1,6 @@
+vagator_auth_check
+============================
+These are the functions which are common among the REST APIs.
+
+.. automodule:: vagator_auth_check
+    :members:

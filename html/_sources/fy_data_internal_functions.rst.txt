@@ -1,0 +1,6 @@
+fy_data_internal_functions
+==========================
+These are the functions which performs the core operations for the REST APIs.
+
+.. automodule:: fy_data_internal_functions
+    :members:

@@ -1,0 +1,25 @@
+.. data_rest documentation master file, created by
+   sphinx-quickstart on Thu Dec 23 09:13:48 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Data Rest Documentation
+***********************
+Documentation for fyers data REST APIs.
+
+Functions
+---------
+.. toctree::
+   :maxdepth: 2
+   
+   fy_auth_functions
+   fy_base_functions
+   fy_common_internal_functions
+   fy_connections
+   fy_data_external_functions
+   fy_data_internal_functions
+   fy_save_chart_settings_functions
+   fy_savechart_functions
+   fy_set_redis_count
+   vagator_auth_check
+   includeme

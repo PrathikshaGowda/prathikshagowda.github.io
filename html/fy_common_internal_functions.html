@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fy_common_internal_functions &mdash; data_rest  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fy_connections" href="fy_connections.html" />
+    <link rel="prev" title="fy_base_functions" href="fy_base_functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> data_rest
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fy_auth_functions.html">fy_auth_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_base_functions.html">fy_base_functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fy_common_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_connections.html">fy_connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_external_functions.html">fy_data_external_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_internal_functions.html">fy_data_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_save_chart_settings_functions.html">fy_save_chart_settings_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_savechart_functions.html">fy_savechart_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_set_redis_count.html">fy_set_redis_count</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagator_auth_check.html">vagator_auth_check</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">data_rest</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>fy_common_internal_functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/fy_common_internal_functions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="fy-common-internal-functions">
+<h1>fy_common_internal_functions<a class="headerlink" href="#fy-common-internal-functions" title="Permalink to this headline">\uf0c1</a></h1>
+<p>These are the functions which are common among the REST APIs.</p>
+<span class="target" id="module-fy_common_internal_functions"></span><dl class="function">
+<dt id="fy_common_internal_functions.INTERNAL_getFyTokenForInputSymbols">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">INTERNAL_getFyTokenForInputSymbols</code><span class="sig-paren">(</span><em>inputTokenList</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#INTERNAL_getFyTokenForInputSymbols"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.INTERNAL_getFyTokenForInputSymbols" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>NA</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.INTERNAL_getFyTokenForSingleSymbol">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">INTERNAL_getFyTokenForSingleSymbol</code><span class="sig-paren">(</span><em>fySymbol</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#INTERNAL_getFyTokenForSingleSymbol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.INTERNAL_getFyTokenForSingleSymbol" title="Permalink to this definition">\uf0c1</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.INTERNAL_getScriptNameFromTicket">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">INTERNAL_getScriptNameFromTicket</code><span class="sig-paren">(</span><em>tickerInp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#INTERNAL_getScriptNameFromTicket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.INTERNAL_getScriptNameFromTicket" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>It returns the table name of cm segment for NSE and BSE by splitting the symbolticker received in input and returns the underlying symbol</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tickerInp</strong> – symbolticker.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="p">[</span><span class="n">listExch</span><span class="p">]</span> <span class="o">+</span> <span class="n">listscript</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[[</span><span class="sa">u</span><span class="s1">&#39;NSE&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;SBIN-EQ&#39;</span><span class="p">],</span> <span class="sa">u</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;EQ&#39;</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span><span class="p">,</span> <span class="s2">&quot;Invalid ticker:</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">tickerInp</span><span class="p">)]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;Invalid ticker:NSE:SBIN-EQ&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.INTERNAL_getSymExAndSegment">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">INTERNAL_getSymExAndSegment</code><span class="sig-paren">(</span><em>fyToken</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#INTERNAL_getSymExAndSegment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.INTERNAL_getSymExAndSegment" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>This Function will connect to redis instance and return radis_instance.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fyToken</strong> – Unique code of fyers for each symbol, Format is %s%s%s %(exchange,segment,token)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="p">[</span><span class="n">fyEx</span><span class="p">,</span> <span class="n">fySeg</span><span class="p">,</span> <span class="n">scripCode</span><span class="p">,</span><span class="n">fyExpiry</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;3045&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">ERROR_C_INV_FYSYMBOL</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.INTERNAL_getSymbolTickersForFyTokensList">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">INTERNAL_getSymbolTickersForFyTokensList</code><span class="sig-paren">(</span><em>inputTokenList</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#INTERNAL_getSymbolTickersForFyTokensList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.INTERNAL_getSymbolTickersForFyTokensList" title="Permalink to this definition">\uf0c1</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.fy_secretKeyRet">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">fy_secretKeyRet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#fy_secretKeyRet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.fy_secretKeyRet" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>It receives the secrete key from redis, with respect to current day timestamp, if there is no seccret key exists for the timestamp , create a secret key and store it in database and also set to redis with expiry of 1 day.</div></blockquote>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span> <span class="p">,</span> <span class="n">secretKeyUUID</span> <span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;f053746e-66a7-11ec-b9e6-029788859cd6&#39;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span> <span class="p">,</span> <span class="n">ERROR_C_UNKNOWN</span> <span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="k">global</span> <span class="n">name</span> <span class="s1">&#39;keyName&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.hashAndTimeStamp">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">hashAndTimeStamp</code><span class="sig-paren">(</span><em>requestDict</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#hashAndTimeStamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.hashAndTimeStamp" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>It checks if the request is valid with respect to timestamp and saves the secrete key in an ordered dict.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>requestDict</strong> – {u’symbols’: u’NSE:SBIN22JANFUT’, u’token_id’: u’gAAAAABhyUoTfzRwMHW7tTSbjYfNqk5U5-sNsd-Ht6XTKQXNxgtbUhO_IfGHwIgD8Lq2j7Ev7iTtUJBvM1jcfcOJ08hGaVm78YUgOIYiVyE-Xj324XcSi3A=’, u’marketStat’: u’528775e84691b5a27da29cd6d6712d90’, u’dataReq’: u’1640592934’}</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">{</span><span class="n">API_K_STATUS</span> <span class="p">:</span> <span class="n">API_V_SUCCESS</span> <span class="p">,</span> <span class="n">API_K_CODE</span> <span class="p">:</span> <span class="n">SUCCESS_C_1</span> <span class="p">,</span> <span class="n">API_K_MSG</span> <span class="p">:</span> <span class="n">orderedDictHash</span><span class="p">}</span>
+            <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="sa">u</span><span class="s1">&#39;symbols&#39;</span><span class="p">,</span> <span class="s1">&#39;NSE:SBIN22JANFUT&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa">u</span><span class="s1">&#39;dataReq&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;1640592934&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa">u</span><span class="s1">&#39;marketStat&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;528775e84691b5a27da29cd6d6712d90&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;secret_keyname&#39;</span><span class="p">,</span> <span class="s1">&#39;secret_key_rest_apis_1640563200&#39;</span><span class="p">)])}</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">{</span><span class="n">API_K_STATUS</span> <span class="p">:</span> <span class="n">API_V_ERROR</span> <span class="p">,</span> <span class="n">API_K_CODE</span> <span class="p">:</span> <span class="n">ERROR_C_INV_TIMESTAMP</span> <span class="p">,</span> <span class="n">API_K_MSG</span> <span class="p">:</span> <span class="n">ERROR_M_INV_TIMESTAMP</span><span class="p">}</span>
+            <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">321</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;your request has expired&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.internal_getExpiryForUnderlying">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">internal_getExpiryForUnderlying</code><span class="sig-paren">(</span><em>underlyingFyToken</em>, <em>expiryType</em>, <em>expiryTime</em>, <em>expiryAfter=0</em>, <em>db=None</em>, <em>cursor=None</em>, <em>localMemory=None</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#internal_getExpiryForUnderlying"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.internal_getExpiryForUnderlying" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>Get the desired expiry date in unix timestamp.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>underlyingFyToken</strong> - The underlying symbol’s fytoken. Eg: 101000000026000(Nifty50-Index).</li>
+<li><strong>expiryType</strong> - Are you looking for weekly expiry or monthly expiry? 1-&gt; Weekly; 2-&gt; Monthly</li>
+<li><strong>expiryTime</strong> - Which expiry do we want? 0-&gt; Near; 1-&gt; Next; 2-&gt; Far; -1 -&gt; Furthest expiry; -2 -&gt; Second further expiry</li>
+<li><strong>expiryAfter</strong> - Will look for expiry after the provided input date.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">expiryDate</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1609142355</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span><span class="n">ERROR_C_INV_EXPIRY_TYPE</span><span class="p">,</span><span class="n">ERROR_M_INV_INPUT_1</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">521</span><span class="p">,</span> <span class="s2">&quot;Invalid input&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.logEntryFunc">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">logEntryFunc</code><span class="sig-paren">(</span><em>status</em>, <em>funcName</em>, <em>*logArgs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#logEntryFunc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.logEntryFunc" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>This will log success and failure entries into either a file system or will print onto the console.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>status</strong> – SUCCESS/ERROR;</li>
+<li><strong>(status,funcName,**logArgs=&gt; Is a list which can have n number of elements that will get printed into logs)</strong></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="n">Will</span> <span class="n">either</span> <span class="n">log</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">parameters</span> <span class="n">into</span> <span class="n">a</span> <span class="n">file</span> <span class="n">system</span> <span class="ow">or</span> <span class="n">will</span> <span class="nb">print</span> <span class="n">to</span> <span class="n">the</span> <span class="n">console</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="n">Will</span> <span class="nb">print</span> <span class="n">error</span> <span class="n">message</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.paramsValCheck">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">paramsValCheck</code><span class="sig-paren">(</span><em>requestDict</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#paramsValCheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.paramsValCheck" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>Test all the Params , if any parameter is empty or not available return the message saying      the parameter is not available or the parameter is send as an empty. Pass the list of parameters in the args and send the packed list to verify which all parameters needs to be checked. If any regex check or any keys required to be checkuse the kwargs to pack dictionaries where special check is required.
+Return the Dictionary consists of three keys. {‘s’: , ‘code’ : , ‘message’ : } . This will consists of success or error , code will be consists of error codes to reflect particular issue has been handled.  and message key will consists of data if success else error message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><strong>requestDict</strong> - {u’symbols’: u’NSE:SBIN22JANFUT’, u’token_id’: u’gAAAAABhyUoTfzRwMHW7tTSbjYfNqk5U5-sNsd-Ht6XTKQXNxgtbUhO_IfGHwIgD8Lq2j7Ev7iTtUJBvM1jcfcOJ08hGaVm78YUgOIYiVyE-Xj324XcSi3A=’, u’marketStat’: u’528775e84691b5a27da29cd6d6712d90’, u’dataReq’: u’1640592934’}</li>
+<li><strong>args</strong> - (u’symbols’, u’dataReq’, u’marketStat’).</li>
+</ul>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">{</span><span class="n">API_K_STATUS</span> <span class="p">:</span> <span class="n">s</span> <span class="p">,</span> <span class="n">API_K_CODE</span> <span class="p">:</span> <span class="n">code</span> <span class="p">,</span> <span class="n">API_K_MSG</span> <span class="p">:</span> <span class="n">message</span><span class="p">}</span>
+            <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Success&#39;</span><span class="p">}</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">{</span><span class="n">API_K_STATUS</span> <span class="p">:</span> <span class="n">s</span> <span class="p">,</span> <span class="n">API_K_CODE</span> <span class="p">:</span> <span class="n">code</span> <span class="p">,</span> <span class="n">API_K_MSG</span> <span class="p">:</span> <span class="n">message</span><span class="p">}</span>
+            <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;keys are not available. Aborting the Request&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.splitTokenString">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">splitTokenString</code><span class="sig-paren">(</span><em>inputToken</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#splitTokenString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.splitTokenString" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>This function will split the symbol ticker and returns the associated exchange, symbol name and series of the perticular symbol.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inputToken</strong> – Should not contain any special char. Should contain only number and alphabet. 0&lt;length&lt;100</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="p">[</span><span class="n">splitListEx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">splitListEx</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">tokenExt</span><span class="p">,</span> <span class="n">inputToken</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;NSE&#39;</span><span class="p">,</span> <span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;-EQ&#39;</span><span class="p">,</span> <span class="s1">&#39;NSE:SBIN-EQ&#39;</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="p">[],</span> <span class="s2">&quot;ERR : </span><span class="si">%s</span><span class="s2">-&gt; Invalid input token </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">LOG_STR_INTERNAL_splitTokenString</span><span class="p">,</span> <span class="n">inputToken</span><span class="p">)]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[],</span> <span class="s2">&quot;ERR: splitTokenString-&gt; Invalid input token:NSE:SBIN-EQ with unknown exchange:NSE]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_common_internal_functions.validateFromToDate">
+<code class="descclassname">fy_common_internal_functions.</code><code class="descname">validateFromToDate</code><span class="sig-paren">(</span><em>histFrom</em>, <em>histTo</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_common_internal_functions.html#validateFromToDate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_common_internal_functions.validateFromToDate" title="Permalink to this definition">\uf0c1</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fy_base_functions.html" class="btn btn-neutral float-left" title="fy_base_functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fy_connections.html" class="btn btn-neutral float-right" title="fy_connections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Fyers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

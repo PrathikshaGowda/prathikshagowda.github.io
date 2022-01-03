@@ -1,0 +1,6 @@
+fy_data_external_functions
+==========================
+This is the first phase of the data REST APIs where checks are performed and then further continued to other modules.
+
+.. automodule:: fy_data_external_functions
+    :members:

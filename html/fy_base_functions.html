@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fy_base_functions &mdash; data_rest  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fy_common_internal_functions" href="fy_common_internal_functions.html" />
+    <link rel="prev" title="fy_auth_functions" href="fy_auth_functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> data_rest
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fy_auth_functions.html">fy_auth_functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fy_base_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_common_internal_functions.html">fy_common_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_connections.html">fy_connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_external_functions.html">fy_data_external_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_internal_functions.html">fy_data_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_save_chart_settings_functions.html">fy_save_chart_settings_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_savechart_functions.html">fy_savechart_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_set_redis_count.html">fy_set_redis_count</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagator_auth_check.html">vagator_auth_check</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">data_rest</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>fy_base_functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/fy_base_functions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="fy-base-functions">
+<h1>fy_base_functions<a class="headerlink" href="#fy-base-functions" title="Permalink to this headline">\uf0c1</a></h1>
+<p>These are the functions which are common among the REST APIs.</p>
+<span class="target" id="module-fy_base_functions"></span><dl class="function">
+<dt id="fy_base_functions.INTERNAL_checkIfStringMatchesFormat">
+<code class="descclassname">fy_base_functions.</code><code class="descname">INTERNAL_checkIfStringMatchesFormat</code><span class="sig-paren">(</span><em>requiredStringFormat</em>, <em>stringToCheck</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_base_functions.html#INTERNAL_checkIfStringMatchesFormat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_base_functions.INTERNAL_checkIfStringMatchesFormat" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>This Function will check if the string matches the desired format.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>requiredStringFormat</strong> - The regex pattern which the string should match.</li>
+<li><strong>stringToCheck</strong> - The input string which needs to be checked.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">stringToCheck</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2xvZ2luLmZ5ZXJzLmluIiwiaWF0IjoxNjQwNjY5Mjg4LCJleHAiOjE2NDA3Mzc4MDgsIm5iZiI6MTY0MDY2OTI4OCwiYXVkIjpbIng6MCJdLCJzdWIiOiJhY2Nlc3NfdG9rZW4iLCJhdF9oYXNoIjoiZ0FBQUFBQmh5cUJvaWxtTDhuSkpVakJpbWplTDJ5V085NVhrUTh5bGV2bkVGT2cwT1kxWUlyelJ1Zl8ySkJyUl8zWmU0ZVk0bFlXOUh4Smd6cTZGaXpaOUdkWEFMd0s5SEZKNEZuSGN4R1pxQVdqM0lESHNUb009IiwiZGlzcGxheV9uYW1lIjoiUFJBVEhJS1NIQSBSQU1FU0giLCJmeV9pZCI6IlhQMDI0NzkiLCJhcHBUeXBlIjoiIiwicG9hX2ZsYWciOiJOIn0.IJ7naQL2Wa7Z9YCi6eenCSiS9sEyJfiFPr6-fyO7Dpk&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">errorCode</span><span class="p">,</span> <span class="s2">&quot;error message&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">307</span><span class="p">,</span> <span class="s1">&#39;The input did not match the required format&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_base_functions.INTERNAL_checkSqlInjections">
+<code class="descclassname">fy_base_functions.</code><code class="descname">INTERNAL_checkSqlInjections</code><span class="sig-paren">(</span><em>userInput</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_base_functions.html#INTERNAL_checkSqlInjections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_base_functions.INTERNAL_checkSqlInjections" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>This function will check if the input has any hazardous sql terminologies which should not be accepted.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>userInput</strong> -  The input that needs to be checked for sql injections. EX:-[SBIN]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span><span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="n">userInput</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+           <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;SBIN&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span><span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">errorCode</span><span class="p">,</span> <span class="s2">&quot;error message&quot;</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="s1">&#39;Invalid input&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_base_functions.INTERNAL_convertTimestampToDateString">
+<code class="descclassname">fy_base_functions.</code><code class="descname">INTERNAL_convertTimestampToDateString</code><span class="sig-paren">(</span><em>timeStamp</em>, <em>dateFormatString</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_base_functions.html#INTERNAL_convertTimestampToDateString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_base_functions.INTERNAL_convertTimestampToDateString" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><blockquote>
+<div>This function will convert the timestamp to the requested data format.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>timeStamp</strong> -  unix timestamp</li>
+<li><strong>dateFormatString</strong> - date string format Eg: “%Y-%m-%d”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span> <span class="p">:</span>   <span class="p">[</span><span class="n">SUCCESS_C_1</span><span class="p">,</span> <span class="s2">&quot;datestring&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;2021-02-02&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span> <span class="p">:</span>   <span class="p">[</span><span class="n">ERROR_C_1</span><span class="p">,</span> <span class="n">errorCode</span><span class="p">,</span> <span class="s2">&quot;error message&quot;</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="s1">&#39;Invalid input&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="fy_base_functions.logEntryFunc2">
+<code class="descclassname">fy_base_functions.</code><code class="descname">logEntryFunc2</code><span class="sig-paren">(</span><em>status</em>, <em>moduleName</em>, <em>funcName</em>, <em>callingFuncName</em>, <em>errorMessage</em>, <em>*logArgs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fy_base_functions.html#logEntryFunc2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fy_base_functions.logEntryFunc2" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>This will log success and failure entries into either a file system or will print onto the console.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>status</strong> - SUCCESS/ERROR</li>
+<li><strong>moduleName</strong> - The name of the module to which the function belongs</li>
+<li><strong>funcName</strong> - The name of the function which is calling this function</li>
+<li><strong>callingFuncName</strong> - The name of the function which has called the running function</li>
+<li><strong>errorMessage</strong> - The error message</li>
+</ul>
+<p class="last">(status,funcName,**logArgs=&gt; Is a list which can have n number of elements that will get printed into logs)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Success</span><span class="p">:</span> <span class="n">Will</span> <span class="n">either</span> <span class="n">log</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">parameters</span> <span class="n">into</span> <span class="n">a</span> <span class="n">file</span> <span class="n">system</span> <span class="ow">or</span> <span class="n">will</span> <span class="nb">print</span> <span class="n">to</span> <span class="n">the</span> <span class="n">console</span>
+         <span class="n">FY</span><span class="o">-</span><span class="n">Log</span> <span class="p">[</span><span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span> <span class="s1">&#39;INTERNAL_getHistoricalOHLCV4_V7&#39;</span><span class="p">,</span> <span class="s1">&#39;INTERNAL_getHistoricalOHLCV4_V7&#39;</span><span class="p">,</span> <span class="s1">&#39;time taken by INTERNAL_getHistoricalOHLCV4_V7 =&gt; incr_redis_field: 157.47 sec&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-27 12:43:05.960220+05:30&#39;</span><span class="p">]</span>
+
+<span class="n">Failure</span><span class="p">:</span> <span class="n">Will</span> <span class="nb">print</span> <span class="n">error</span> <span class="n">message</span>
+         <span class="n">FY</span><span class="o">-</span><span class="n">Log</span> <span class="p">[</span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span> <span class="s1">&#39;INTERNAL_getHistoricalOHLCV4_V7&#39;</span><span class="p">,</span> <span class="s1">&#39;fy_getHistoricalOHLCV_V7&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;Invalid ticker:NSE:SBIN-EQ&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-27 13:19:32.448796+05:30&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;tickerName&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;NSE:SBIN-EQ&#39;</span><span class="p">,</span> <span class="s1">&#39;todayDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> <span class="s1">&#39;roundoffVal&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;exchangeVal&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;tableName&#39;</span><span class="p">:</span> <span class="s1">&#39;10100000003045&#39;</span><span class="p">,</span> <span class="s1">&#39;funcName&#39;</span><span class="p">:</span> <span class="s1">&#39;INTERNAL_getHistoricalOHLCV4_V7&#39;</span><span class="p">,</span> <span class="s1">&#39;callingFuncName&#39;</span><span class="p">:</span> <span class="s1">&#39;fy_getHistoricalOHLCV_V7&#39;</span><span class="p">,</span> <span class="s1">&#39;dbSegmentVal&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;localMemory&#39;</span><span class="p">:</span> <span class="n">Redis</span><span class="o">&lt;</span><span class="n">ConnectionPool</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&lt;</span><span class="n">host</span><span class="o">=</span><span class="n">fyers</span><span class="o">-</span><span class="n">trading</span><span class="o">-</span><span class="n">redis</span><span class="o">.</span><span class="n">jb5agw</span><span class="o">.</span><span class="n">ng</span><span class="o">.</span><span class="mf">0001.</span><span class="n">aps1</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span><span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="o">&gt;&gt;&gt;</span><span class="p">,</span> <span class="s1">&#39;fyExSeg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;3045&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="s1">&#39;fySymbol&#39;</span><span class="p">:</span> <span class="s1">&#39;10100000003045&#39;</span><span class="p">,</span> <span class="s1">&#39;ret_script&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;Invalid ticker:NSE:SBIN-EQ&#39;</span><span class="p">],</span> <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="mf">1640591272.175228</span><span class="p">,</span> <span class="s1">&#39;histTo&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1602633600&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mf">1640591270.934682</span><span class="p">,</span> <span class="s1">&#39;dataStatus&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;histFrom&#39;</span><span class="p">:</span> <span class="mi">1602460800</span><span class="p">,</span> <span class="s1">&#39;retData&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;10100000003045&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="s1">&#39;db&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;startTime&#39;</span><span class="p">:</span> <span class="mf">1640591269.469742</span><span class="p">,</span> <span class="s1">&#39;fyId&#39;</span><span class="p">:</span> <span class="s1">&#39;XP02479&#39;</span><span class="p">,</span> <span class="s1">&#39;tokenHash&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;gAAAAABhyUoTfzRwMHW7tTSbjYfNqk5U5-sNsd-Ht6XTKQXNxgtbUhO_IfGHwIgD8Lq2j7Ev7iTtUJBvM1jcfcOJ08hGaVm78YUgOIYiVyE-Xj324XcSi3A=&#39;</span><span class="p">,</span> <span class="s1">&#39;route&#39;</span><span class="p">:</span> <span class="s1">&#39;/history/V7&#39;</span><span class="p">,</span> <span class="s1">&#39;todayTimeStamp&#39;</span><span class="p">:</span> <span class="mi">1640563200</span><span class="p">,</span> <span class="s1">&#39;cursor&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;tokenHashList&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;XP02479&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;9087943630&#39;</span><span class="p">,</span> <span class="s1">&#39;XP02479-2-9087943630&#39;</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="s1">&#39;contFutFlag&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;segmentVal&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1D&#39;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fy_auth_functions.html" class="btn btn-neutral float-left" title="fy_auth_functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fy_common_internal_functions.html" class="btn btn-neutral float-right" title="fy_common_internal_functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Fyers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

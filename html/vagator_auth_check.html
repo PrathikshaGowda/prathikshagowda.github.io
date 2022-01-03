@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vagator_auth_check &mdash; data_rest  documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="fy_set_redis_count" href="fy_set_redis_count.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> data_rest
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fy_auth_functions.html">fy_auth_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_base_functions.html">fy_base_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_common_internal_functions.html">fy_common_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_connections.html">fy_connections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_external_functions.html">fy_data_external_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_data_internal_functions.html">fy_data_internal_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_save_chart_settings_functions.html">fy_save_chart_settings_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_savechart_functions.html">fy_savechart_functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fy_set_redis_count.html">fy_set_redis_count</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vagator_auth_check</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">data_rest</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>vagator_auth_check</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/vagator_auth_check.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="vagator-auth-check">
+<h1>vagator_auth_check<a class="headerlink" href="#vagator-auth-check" title="Permalink to this headline">\uf0c1</a></h1>
+<p>These are the functions which are common among the REST APIs.</p>
+<span class="target" id="module-vagator_auth_check"></span><dl class="function">
+<dt id="vagator_auth_check.INTERNAL_decreptWithKey">
+<code class="descclassname">vagator_auth_check.</code><code class="descname">INTERNAL_decreptWithKey</code><span class="sig-paren">(</span><em>encryptedText</em>, <em>decryptionKey</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vagator_auth_check.html#INTERNAL_decreptWithKey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vagator_auth_check.INTERNAL_decreptWithKey" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><p>[FUNCTION]
+INTERNAL_decreptWithKey : Will decrypt the input text with the input decryption key
+[PARAMS]    :</p>
+<blockquote>
+<div>encryptedText : The text which needs to be decrypted
+decryptionKey: The decryptionKey key which will be used</div></blockquote>
+<dl class="docutils">
+<dt>[RETURN]</dt>
+<dd>Success : [SUCCESS_C_1,deryptedText,””]
+Failure : [ERROR_C_1,ERROR_C_FY_DECRYPTION,””]</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="vagator_auth_check.INTERNAL_splitTokenHash">
+<code class="descclassname">vagator_auth_check.</code><code class="descname">INTERNAL_splitTokenHash</code><span class="sig-paren">(</span><em>tokenHash</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vagator_auth_check.html#INTERNAL_splitTokenHash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vagator_auth_check.INTERNAL_splitTokenHash" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><dl class="docutils">
+<dt>[FUNCTION]</dt>
+<dd><p class="first">INTERNAL_splitTokenHash : Get the status of a particular order by User and OrderID
+[PARAMS]
+tokenHash    :
+[RETURN]</p>
+<blockquote class="last">
+<div>Success : [SUCCESS_C_1,[fyId,appId,randomKey],””]
+Failure : [ERROR_C_1,errorCode,errorMessage]</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="vagator_auth_check.INTERNAL_validate_access_token_r">
+<code class="descclassname">vagator_auth_check.</code><code class="descname">INTERNAL_validate_access_token_r</code><span class="sig-paren">(</span><em>access_token</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vagator_auth_check.html#INTERNAL_validate_access_token_r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vagator_auth_check.INTERNAL_validate_access_token_r" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><dl class="docutils">
+<dt>[Function]</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">INTERNAL_validate_access_token_r:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">This function takes the following parameters and verify token, it token is valid the user will logged in</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>and if not valid the user have to relogin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>access_token</strong> – access_token to verify the user.</li>
+<li><strong>attrs</strong> – This is a class object of class VerifyToken.</li>
+<li><strong>request</strong> – Request object.</li>
+<li><strong>api_name</strong> – Api name to store in log report.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>[SUCCESS]</strong> – Response body with success message.</li>
+<li><strong>[FAILED]</strong> – Response body with failed message.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="vagator_auth_check.validate_access_token">
+<code class="descclassname">vagator_auth_check.</code><code class="descname">validate_access_token</code><span class="sig-paren">(</span><em>access_token</em>, <em>token_id=None</em>, <em>token_id_flag=False</em>, <em>callingFuncName=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vagator_auth_check.html#validate_access_token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vagator_auth_check.validate_access_token" title="Permalink to this definition">\uf0c1</a></dt>
+<dd><dl class="docutils">
+<dt>[FUNCTION]:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">validate_access_token:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">This function takes the following parameters and verify token, it token is valid the user will logged in</td>
+</tr>
+</tbody>
+</table>
+<p class="last">and if not valid the user have to relogin.</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>access_token</strong> – access_token to verify the user.</li>
+<li><strong>attrs</strong> – This is a class object of class VerifyToken.</li>
+<li><strong>request</strong> – Request object.</li>
+<li><strong>api_name</strong> – Api name to store in log report.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>Json response</strong> –</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>Success (json): [SUCCESS_C_1, [fy_id, app_id, redis_resp[“auth_token”].split(‘-‘)[-1], redis_resp[“auth_token”]], “”]</dt>
+<dd>[1, [‘XP02479’, ‘2’, ‘9087943630’, ‘XP02479-2-9087943630’], ‘’]</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Failure (json): ERROR_C_1, ERROR_C_INVALID_TOKEN_3, ERROR_M_TOKEN_INVALID_D, “”]</dt>
+<dd>[-1, -19, ‘wrong token’, ‘’]</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fy_set_redis_count.html" class="btn btn-neutral float-left" title="fy_set_redis_count" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Fyers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+fy_save_chart_settings_functions
+============================
+These are the functions which are common among the REST APIs.
+
+.. automodule:: fy_save_chart_settings_functions
+    :members:
